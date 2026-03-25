@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fecha Actual</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 50px 60px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      color: #e2e8f0;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin: 0 0 20px;
+      opacity: 0.7;
+    }
+
+    #fecha {
+      color: #ffffff;
+      font-size: 1.9rem;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    #fecha span.dia-semana {
+      color: #63b3ed;
+    }
+
+    #fecha span.dia-num {
+      color: #f6e05e;
+    }
+
+    #fecha span.mes {
+      color: #68d391;
+    }
+
+    #fecha span.anio {
+      color: #fc8181;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h1>📅 Fecha de hoy</h1>
+  <div id="fecha"></div>
+</div>
+
+<script>
+  const hoy = new Date();
+
+  // Día de la semana con switch
+  let diaSemana;
+  switch (hoy.getDay()) {
+    case 0: diaSemana = "domingo";    break;
+    case 1: diaSemana = "lunes";      break;
+    case 2: diaSemana = "martes";     break;
+    case 3: diaSemana = "miércoles";  break;
+    case 4: diaSemana = "jueves";     break;
+    case 5: diaSemana = "viernes";    break;
+    case 6: diaSemana = "sábado";     break;
+  }
+
+  // Mes del año con switch
+  let mes;
+  switch (hoy.getMonth()) {
+    case 0:  mes = "enero";      break;
+    case 1:  mes = "febrero";    break;
+    case 2:  mes = "marzo";      break;
+    case 3:  mes = "abril";      break;
+    case 4:  mes = "mayo";       break;
+    case 5:  mes = "junio";      break;
+    case 6:  mes = "julio";      break;
+    case 7:  mes = "agosto";     break;
+    case 8:  mes = "septiembre"; break;
+    case 9:  mes = "octubre";    break;
+    case 10: mes = "noviembre";  break;
+    case 11: mes = "diciembre";  break;
+  }
+
+  const diaMes = hoy.getDate();
+  const anio   = hoy.getFullYear();
+
+  document.getElementById("fecha").innerHTML =
+    `Hoy es <span class="dia-semana">${diaSemana}</span> ` +
+    `<span class="dia-num">${diaMes}</span> de ` +
+    `<span class="mes">${mes}</span> del año ` +
+    `<span class="anio">${anio}</span>`;
+</script>
+
+</body>
+</html>
